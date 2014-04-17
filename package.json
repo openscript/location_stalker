@@ -1,0 +1,47 @@
+{
+  "name": "location_stalker",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Stalks the geographic locations of others live on a map.",
+  "keywords": [],
+  "dependencies": {
+    "sails": "~0.10.0-rc5",
+    "sails-postgresql": "~0.10.0",
+    "rc": "~0.3.3",
+    "include-all": "~0.1.3",
+    "ejs": "~0.8.4",
+    "grunt": "0.4.2",
+    "grunt-sync": "~0.0.4",
+    "grunt-bower": "~0.11.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-sails-linker": "~0.9.5",
+    "grunt-contrib-jst": "~0.6.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-uglify": "~0.4.0",
+    "grunt-contrib-cssmin": "~0.9.0",
+    "grunt-contrib-sass": "~0.7.3",
+    "grunt-contrib-coffee": "~0.10.1",
+    "leaflet": "^0.7.2"
+  },
+  "defDependencies": {
+    "then-jade": "~2.0.0",
+    "jade": "~1.3.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "debug": "node debug app.js"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/openscript/location_stalker.git"
+  },
+  "author": "Robin Bühler",
+  "license": "GPLv3",
+  "devDependencies": {
+    "then-jade": "^2.0.0",
+    "jade": "^1.3.1"
+  }
+}

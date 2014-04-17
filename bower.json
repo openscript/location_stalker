@@ -1,0 +1,11 @@
+{
+	"name": "location_stalker",
+	"version": "0.0.1",
+
+	"dependencies": {
+		"foundation": "zurb/bower-foundation",
+		"jquery": "jquery/jquery",
+		"jquery.serializeJSON": "marioizquierdo/jquery.serializeJSON",
+		"leaflet": "http://leaflet-cdn.s3.amazonaws.com/build/leaflet-0.7.2.zip"
+	}
+}
