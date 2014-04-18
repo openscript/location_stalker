@@ -1,7 +1,8 @@
 doctype html
 html(lang='en')
   head
-    title= title
+
+    title
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
 
     script(type='text/javascript', src='/scripts/modernizr.js')
@@ -13,7 +14,7 @@ html(lang='en')
       ul(class='title-area')
         li(class='name')
           h1
-            a(href='./')= title
+            a(href='./')= i18n('appName')
 
     block body
 
