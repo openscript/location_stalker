@@ -22,6 +22,9 @@ Start Location Stalker with `sails lift`.
 2. Run `node-inspector &` and `sails debug`. Set break points with `debugger`.
 3. Visit the url as node inspector indicates. Make sure that you run the code with the break point.
 
+## Issues
+- Foundation is not optimized for `SASS > 3.2`. So grunt is throwing a bunch of warnings about deprecated usage of `SASS`. 
+
 ## Dependencies
 This application works thanks to the following projects:
  - [Sails.JS](http://sailsjs.org)

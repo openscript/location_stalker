@@ -1,28 +1,35 @@
 doctype html
 html(lang='en')
-  head
+	head
+		title= i18n('appName')
+		meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
 
-    title= i18n('appName')
-    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+		script(type='text/javascript', src='/scripts/modernizr.js')
+		link(href='/styles/app.css', rel='stylesheet', type='text/css')
+		block styles
 
-    script(type='text/javascript', src='/scripts/modernizr.js')
-    link(href='/styles/app.css', rel='stylesheet', type='text/css')
-    block styles
+	body
+		nav(class='top-bar', data-topbar)
+			ul.title-area
+				li.name
+					h1
+						a(href='./')= i18n('appName')
+			section.top-bar-section
+				ul.right
+					li.has-dropdown
+						a(href='#')= i18n('administration')
+						ul.dropdown
+							li
+								a(href='./collection')= i18n('collection')
+		block body
 
-  body
-    nav(class='top-bar', data-topbar)
-      ul(class='title-area')
-        li(class='name')
-          h1
-            a(href='./')= i18n('appName')
+		footer.row= i18n('footer')
 
-    block body
+		script(type='text/javascript', src='/scripts/jquery.js')
+		script(type='text/javascript', src='/scripts/jquery.serializeJSON.js')
+		script(type='text/javascript', src='/scripts/fastclick.js')
+		script(type='text/javascript', src='/scripts/foundation.js')
+		script(type='text/javascript', src='/scripts/sails.io.js')
+		script(type='text/javascript', src='/scripts/app.js')
 
-    script(type='text/javascript', src='/vendor/jquery/dist/jquery.min.js')
-    script(type='text/javascript', src='/vendor/jquery.serializejson/jquery.serializejson.min.js')
-    script(type='text/javascript', src='/vendor/fastclick/lib/fastclick.js')
-    script(type='text/javascript', src='/vendor/foundation/js/foundation.js')
-    script(type='text/javascript', src='/scripts/sails.io.js')
-    script(type='text/javascript', src='/scripts/app.js')
-
-    block scripts
+		block scripts

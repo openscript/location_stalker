@@ -5,6 +5,12 @@
  * http://sailsjs.org/#documentation
  */
 module.exports.express = {
+	customMiddleware: function(app) {
+		if(process.env.NODE_ENV === 'development') {
+			app.locals.pretty = true;
+		}
+	},
+	
 	// Completely override Express middleware loading.  
 	// If you only want to override the bodyParser, cookieParser
 	// or methodOverride middleware, see the appropriate keys below.

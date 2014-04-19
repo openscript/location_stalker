@@ -1,10 +1,11 @@
 {
-  "appName": "Live Location",
+  "appName": "Location Stalker",
   "welcome": "Hallo Stalker!"
   "introduction": "Unterhalb werden alle verfügbaren Datensammlungen angezeigt. Darin befinden sich die aufgenommenen Koordinaten, welche jeweils einer Sitzung zugeordnet sind. Alles wird so zeitnah wie möglich angezeigt.",
   "title": "Titel",
   "description": "Beschreibung",
   "activity": "Aktivität",
   "actions": "Aktionen",
-  "noData": "Leider kein Inhalt gefunden."
+  "noData": "Leider kein Inhalt gefunden.",
+  "footer": "Dieses Opensource-Projekt wurde initiiert von Robin Bühler."
 }

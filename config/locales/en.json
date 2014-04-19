@@ -1,10 +1,17 @@
 {
-  "appName": "Live Location",
+  "appName": "Location Stalker",
   "welcome": "Hello Stalker!",
   "introduction": "Below you see all available collections. This collections containing sessions of tracked coordinates. Everything is shown in realtime to you.",
   "title": "Title",
   "description": "Description",
   "activity": "Activity",
   "actions": "Actions",
-  "noData": "Sorry, there is no data."
+  "create": "Create",
+  "noData": "Sorry, there is no data.",
+  "manageCollections": "Manage collections",
+  "createCollection": "Create a collection",
+  "listCollections": "A list of collections",
+  "collection": "Collection",
+  "administration": "Administration",
+  "footer": "This is an open source project initiated by Robin Bühler."
 }

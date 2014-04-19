@@ -1,5 +1,5 @@
-var CollectionController = {
-
+module.exports = {
+	index: function(req, res) {
+		return res.view();
+	}
 }
-
-module.exports = CollectionController;

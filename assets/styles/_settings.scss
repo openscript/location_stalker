@@ -333,14 +333,14 @@ $header-font-color: $primary-color;
 // $form-label-pointer: pointer;
 // $form-label-font-size: rem-calc(14);
 // $form-label-font-weight: normal;
-// $form-label-font-color: lighten(#000, 30%);
+$form-label-font-color: lighten(#000, 75%);
 // $form-label-bottom-margin: rem-calc(8);
 // $input-font-family: inherit;
-// $input-font-color: rgba(0,0,0,0.75);
+$input-font-color: rgba(255,255,255,0.75);
 // $input-font-size: rem-calc(14);
-// $input-bg-color: #fff;
-// $input-focus-bg-color: darken(#fff, 2%);
-// $input-border-color: darken(#fff, 20%);
+$input-bg-color: #333;
+$input-focus-bg-color: lighten(#333, 10%);
+$input-border-color: lighten(#333, 20%);
 // $input-focus-border-color: darken(#fff, 40%);
 // $input-border-style: solid;
 // $input-border-width: 1px;
@@ -851,7 +851,7 @@ $table-border-color: transparent;
 // These control the table head styles
 $table-head-bg: #333;
 // $table-head-font-size: rem-calc(14);
-$table-head-font-color: #fff;
+$table-head-font-color: lighten(#000, 75%);
 $table-head-font-weight: normal;
 $table-head-padding: rem-calc(8 10 10);
 
