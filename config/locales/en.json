@@ -1,3 +1,10 @@
 {
-  "appName": "Live Location"
+  "appName": "Live Location",
+  "welcome": "Hello Stalker!",
+  "introduction": "Below you see all available collections. This collections containing sessions of tracked coordinates. Everything is shown in realtime to you.",
+  "title": "Title",
+  "description": "Description",
+  "activity": "Activity",
+  "actions": "Actions",
+  "noData": "Sorry, there is no data."
 }

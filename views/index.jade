@@ -1,28 +1,18 @@
 extends layout
 
 block body
-	div(class=['small-12', 'columns'])
-		h2
-			| Hello! <small>Welcome to Live Location.</small>
-		div(class=['large-6', 'columns'])
-			p
-				| Select a session collection
-			ul(class='item-list', id='index-collection')
-		div(class=['large-6', 'columns'])
-			p
-				| Create a session collection
-			form(action='./collection/create', method='post', id='create-collection')
-				div(class='row')
-					label
-						| Title
-						input(name='title', type='text', placeholder='Title')
-				div(class='row')
-					label
-						| Description
-						textarea(name='description', placeholder="Description")
-				div(class='row')
-					a(class=['button', 'expand'])
-						| Create
+	.row
+		h2= i18n('welcome')
+		p= i18n('introduction')
+		table.columns
+			thead
+				th.title= i18n('title')
+				th.description= i18n('description')
+				th.activity= i18n('activity')
+				th.actions= i18n('actions')
+			tbody(id='collection-index')
+				tr
+					td(colspan='4')= i18n('noData')
 
 block scripts
 	script(type='text/javascript', src='/scripts/index.js')
