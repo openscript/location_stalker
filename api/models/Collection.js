@@ -2,7 +2,6 @@
 // It has a one-to-many association with the session model.
 
 module.exports = {
-
 	attributes: {
 		title: {
 			type: 'string',

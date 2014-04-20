@@ -2,7 +2,6 @@
 // It has a many-to-one association with the collection model.
 
 module.exports = {
-
 	attributes: {
 		title: {
 			type: 'string',

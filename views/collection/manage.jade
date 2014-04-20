@@ -5,19 +5,19 @@ block body
 		h2= i18n('manageCollections')
 		h3= i18n('createCollection')
 		.columns
-			form(action='./collection/create', method='post', id='create')
+			form(action='/collection', method='post', id='create')
 					label= i18n('title')
-						input(name='title', type='text', placeholder= i18n('title'))
+						input(name='title', type='text', placeholder= i18n('title'), required)
 					label= i18n('description')
 						textarea(name='description', placeholder= i18n('description'))
-					a.button.expand.tiny= i18n('create')
+					input.button.expand.tiny(type="submit", value= i18n('create'))
 		h3= i18n('listCollections')
 		table.columns
 			thead
 				th.title= i18n('title')
 				th.description= i18n('description')
 				th.actions= i18n('actions')
-			tbody(id='collection-index')
+			tbody(id='list')
 				tr
 					td(colspan='3')= i18n('noData')
 

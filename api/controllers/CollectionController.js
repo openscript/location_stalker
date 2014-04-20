@@ -1,5 +1,5 @@
 module.exports = {
-	index: function(req, res) {
+	manage: function(req, res) {
 		return res.view();
 	}
 }

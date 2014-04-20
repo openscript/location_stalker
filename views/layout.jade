@@ -13,20 +13,21 @@ html(lang='en')
 			ul.title-area
 				li.name
 					h1
-						a(href='./')= i18n('appName')
+						a(href='/')= i18n('appName')
 			section.top-bar-section
 				ul.right
 					li.has-dropdown
 						a(href='#')= i18n('administration')
 						ul.dropdown
 							li
-								a(href='./collection')= i18n('collection')
+								a(href='/collection/manage')= i18n('collection')
 		block body
 
 		footer.row= i18n('footer')
 
 		script(type='text/javascript', src='/scripts/jquery.js')
 		script(type='text/javascript', src='/scripts/jquery.serializeJSON.js')
+		script(type='text/javascript', src='/scripts/jquery-validation.js')
 		script(type='text/javascript', src='/scripts/fastclick.js')
 		script(type='text/javascript', src='/scripts/foundation.js')
 		script(type='text/javascript', src='/scripts/sails.io.js')

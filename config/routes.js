@@ -25,8 +25,4 @@ module.exports.routes = {
     view: 'index'
   },
 
-  '/collectionsss': {
-    controller: 'collection'
-  }
-
 };

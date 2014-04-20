@@ -6,6 +6,7 @@
 		"foundation": "zurb/bower-foundation",
 		"jquery": "jquery/jquery",
 		"jquery.serializeJSON": "marioizquierdo/jquery.serializeJSON",
+		"jquery-validation": "jzaefferer/jquery-validation",
 		"leaflet": "http://leaflet-cdn.s3.amazonaws.com/build/leaflet-0.7.2.zip"
 	}
 }
