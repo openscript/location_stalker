@@ -5,6 +5,8 @@ $('document').ready ->
 	noData = $('#list tr')
 	socket.get '/collection', (res) ->
 		createList(res)
+		return
+	return
 
 
 $('#create').validate({
@@ -16,9 +18,11 @@ $('#create').validate({
 })
 
 # Listen to socket
-socket.on 'collection', (res) ->
+socket.on 'Collection', (res) ->
 	socket.get '/collection', (res) ->
 		recreateList(res)
+		return
+	return
 
 # Document manipulation
 recreateList = (list) ->
