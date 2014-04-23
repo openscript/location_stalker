@@ -1,5 +1,5 @@
 # Location Stalker
-This is a [Sails](http://sailsjs.org) application. This application helps you to stalk the geographic locations of others, live on a map.
+This is a [Sails](http://sailsjs.org) application, which helps you to stalk the geographic locations of others, live on a map. Post the coordinates to the REST interface. They will be immediately shown on the map.
 
 ## Usage
 Start Location Stalker with `sails lift`.
@@ -20,8 +20,8 @@ Start Location Stalker with `sails lift`.
 
 ### Debugging
 1. Install `node-inspector` via `npm`.
-2. Run `node-inspector &` and `sails debug`. Set break points with `debugger`.
-3. Visit the url as node inspector indicates. Make sure that you run the code with the break point.
+2. Run `node-inspector &` and `sails debug` or `node --debug-brk app.js`. Set break points with `debugger`.
+3. Visit the url as node inspector indicates. Make sure that you run the code, which containts your break point.
 
 ## Issues
 - Foundation is not optimized for `SASS > 3.2`. So grunt is throwing a bunch of warnings about deprecated things Foundation does. 

@@ -3,23 +3,37 @@ extends ../layout
 block body
 	.row
 		h2= i18n('manageCollections')
-		h3= i18n('createCollection')
-		.columns
-			form(action='/collection', method='post', id='create')
+		#create
+			h3= i18n('createCollection')
+			form(action='/collection', method='post')
 					label= i18n('title')
 						input(name='title', type='text', placeholder= i18n('title'), required)
 					label= i18n('description')
 						textarea(name='description', placeholder= i18n('description'))
 					input.button.expand.tiny(type="submit", value= i18n('create'))
-		h3= i18n('listCollections')
-		table.columns
-			thead
-				th.title= i18n('title')
-				th.description= i18n('description')
-				th.actions= i18n('actions')
-			tbody(id='list')
-				tr
-					td(colspan='3')= i18n('noData')
+
+		#edit.hide
+			h3= i18n('editCollection')
+			form(action='/collection', method='post')
+					input(name='id', type='hidden')
+					label= i18n('title')
+						input(name='title', type='text', placeholder= i18n('title'), required)
+					label= i18n('description')
+						textarea(name='description', placeholder= i18n('description'))
+					.large-6.columns
+						input.button.expand.tiny(type="submit", value= i18n('save'))
+					.large-6.columns
+						a.button.expand.tiny.cancel= i18n('cancel')
+		#list
+			h3= i18n('listCollections')
+			table.fullwidth
+				thead
+					th.title= i18n('title')
+					th.description= i18n('description')
+					th.actions= i18n('actions')
+				tbody
+					tr.noData
+						td(colspan='3')= i18n('noData')
 
 block scripts
 	script(type='text/javascript', src='/scripts/collection.js')

@@ -344,7 +344,7 @@ $input-border-color: lighten(#333, 20%);
 // $input-focus-border-color: darken(#fff, 40%);
 // $input-border-style: solid;
 // $input-border-width: 1px;
-// $input-disabled-bg: #ddd;
+$input-disabled-bg: $input-bg-color;
 // $input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
 // $input-include-glowing-effect: true;
 

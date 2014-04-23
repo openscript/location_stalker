@@ -137,7 +137,7 @@ module.exports.blueprints = {
    */
   pluralize: false,
 
-  autoWatch: false,
+  autoWatch: true,
 
   mirror: false
 };
