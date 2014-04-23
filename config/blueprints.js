@@ -24,7 +24,6 @@
 
 module.exports.blueprints = {
 
-
   /**
    * NOTE:
    * A lot of the configuration options below affect so-called "CRUD methods",
@@ -34,8 +33,6 @@ module.exports.blueprints = {
    * a model exists with the same name as the controller, Sails will respond with built-in CRUD
    * logic in the form of a JSON API, including support for sort, pagination, and filtering.
   */
-
-
 
   /**
    * Controller/Action Blueprints
@@ -73,8 +70,6 @@ module.exports.blueprints = {
    */
   actions: true,
 
-
-  
   /**
    * RESTful Blueprints
    * (`sails.config.blueprints.rest`)
@@ -95,7 +90,6 @@ module.exports.blueprints = {
    */
   rest: true,
 
-
   /**
    * `shortcuts`
    *
@@ -106,8 +100,6 @@ module.exports.blueprints = {
    * `shortcuts` are enabled by default, but SHOULD BE DISABLED IN PRODUCTION!!!!!
    */
   shortcuts: true,
-
-
 
   /**
    * `prefix`
@@ -130,10 +122,6 @@ module.exports.blueprints = {
    */
   prefix: '',
 
-
-
-
-
   /**
    * `pluralize`
    *
@@ -149,5 +137,7 @@ module.exports.blueprints = {
    */
   pluralize: false,
 
-  autowatch: true
+  autoWatch: false,
+
+  mirror: false
 };

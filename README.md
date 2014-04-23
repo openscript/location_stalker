@@ -15,7 +15,8 @@ Start Location Stalker with `sails lift`.
 2. Create a new database with `CREATE DATABASE location_stalker OWNER location_stalker;`.
 
 #### Configure MySQL database
-1. Create a new database with `CREATE DATABASE location_stalker;`.
+1. Install the npm package `sails-mysql`.
+2. Create a new database with `CREATE DATABASE location_stalker;`.
 
 ### Debugging
 1. Install `node-inspector` via `npm`.
@@ -23,9 +24,19 @@ Start Location Stalker with `sails lift`.
 3. Visit the url as node inspector indicates. Make sure that you run the code with the break point.
 
 ## Issues
-- Foundation is not optimized for `SASS > 3.2`. So grunt is throwing a bunch of warnings about deprecated usage of `SASS`. 
+- Foundation is not optimized for `SASS > 3.2`. So grunt is throwing a bunch of warnings about deprecated things Foundation does. 
 
 ## Dependencies
 This application works thanks to the following projects:
  - [Sails.JS](http://sailsjs.org)
  - [Foundation](http://foundation.zurb.com/)
+ - [socket.io](http://socket.io/)
+ - [Jade](http://jade-lang.com/)
+
+## Note of thanks
+Many thanks to everyone who contributed to the project.
+
+## Copyright
+This projected is licensed under the terms of the GPL v3 license. Please consult the license file for further information.
+
+Copyright © 2014 Robin Bühler

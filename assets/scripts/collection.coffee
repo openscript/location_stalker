@@ -14,11 +14,12 @@ $('#create').validate({
 		socket.post '/collection', $('#create').serializeJSON(), (res) -> 
 			if !res.error
 				$('#create')[0].reset()
+				addCollection(res)
 		false
 })
 
 # Listen to socket
-socket.on 'Collection', (res) ->
+socket.on 'collection', (res) ->
 	socket.get '/collection', (res) ->
 		recreateList(res)
 		return
@@ -44,7 +45,10 @@ addCollection = (item) ->
 		id: item.id
 	}).append(title).append(description).append(actions)
 
-	$('#list').append(row)
+	$('#list').prepend(row)
+
+deleteCollection = (id) ->
+	$('tr#' + id).remove()
 
 createActions = (id) ->
 	deleteButton = $('<li>').append($('<a>', 
@@ -54,7 +58,8 @@ createActions = (id) ->
 		).click (event) ->
 			event.preventDefault()
 			socket.delete $(this).attr('href'), (res) ->
-				true if !res.error
+				if !res.error
+					deleteCollection(id)
 			false
 	)
 
