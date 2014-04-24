@@ -1,0 +1,13 @@
+extends ../layout
+
+block styles
+	link(href='/styles/leaflet.css', rel='stylesheet', type='text/css')
+
+block body
+	#nav
+		p.noData= i18n('noData')
+	#map
+
+block scripts
+	script(type='text/javascript', src='/scripts/leaflet.js')
+	script(type='text/javascript', src='/scripts/map.js')

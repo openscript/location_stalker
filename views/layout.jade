@@ -8,6 +8,7 @@ html(lang='en')
 		link(rel='shortcut icon', href='/favicon.ico')
 
 		link(href='/styles/app.css', rel='stylesheet', type='text/css')
+
 		block styles
 
 	body
@@ -27,7 +28,7 @@ html(lang='en')
 								a(href='/collection/manage')= i18n('collection')
 		block body
 
-		footer.row= i18n('footer')
+		footer= i18n('footer')
 
 		script(type='text/javascript', src='/scripts/jquery.js')
 		script(type='text/javascript', src='/scripts/jquery.serializeJSON.js')

@@ -1,6 +1,12 @@
 @import "settings";
 @import "vendor/foundation/scss/foundation";
 
+* {
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
 body {
 	position: relative;
 	height: auto !important;
@@ -9,7 +15,15 @@ body {
 }
 
 footer {
+	position: absolute;
 	font-size: rem-calc(10);
+	bottom: 0;
+	text-align: center;
+	width: 100%;
+	padding: rem-calc(8) 0 rem-calc(8) 0;
+	margin-top: rem-calc(8);
+	color: #ccc;
+	background-color: $topbar-bg-color;
 }
 
 label.error {
@@ -50,25 +64,33 @@ th.actions {
 #nav {
 	position: absolute;
 	height: auto !important;
-	background-color: #000;
+	background-color: #333;
 	margin-top: $topbar-height;
-	padding: 1em 0 1em 0;
 	top: 0;
 	bottom: 0;
 	width: 250px;
 	overflow: hidden;
+	padding: rem-calc(10) 0 0 0;
+
+	* {
+		font-size: rem-calc(12);
+	}
+
+	p {
+		text-align: center;
+	}
 }
 
 #map {
 	position: absolute;
 	height: auto !important;
+	width: auto;
 	margin-top: $topbar-height;
 	margin-left: 250px;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	width: auto;
 }
 
 .item-list li {

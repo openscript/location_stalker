@@ -24,4 +24,9 @@ module.exports.routes = {
   '/': {
     view: 'start'
   },
+
+  '/map/:id': {
+  	controller: 'map',
+  	action: 'view'
+  }
 };
