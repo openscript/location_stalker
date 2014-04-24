@@ -35,6 +35,7 @@ This application works thanks to the following projects:
 
 ## Note of thanks
 Many thanks to everyone who contributed to the project.
+- [Favicon](https://www.iconfinder.com/icons/110992/camera_icon#size=16)
 
 ## Copyright
 This projected is licensed under the terms of the GPL v3 license. Please consult the license file for further information.
