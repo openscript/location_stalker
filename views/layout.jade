@@ -15,7 +15,9 @@ html(lang='en')
 			ul.title-area
 				li.name
 					h1
-						a(href='/')= i18n('appName')
+						a(href='/')
+							img(src='/images/offline.gif', alt='status', id='status')
+							= i18n('appName')
 			section.top-bar-section
 				ul.right
 					li.has-dropdown
