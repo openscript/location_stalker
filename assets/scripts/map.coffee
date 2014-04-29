@@ -16,10 +16,6 @@ map.addLayer(osm)
 # Register events
 $('document').ready ->
 	noData = $('p.noData')
-	socket.get '/collection' + collection, (res) ->
-		createList(res)
-		return
-	return
 
 # Document manipulation
 createList = (list) ->

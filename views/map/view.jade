@@ -5,7 +5,12 @@ block styles
 
 block body
 	#nav
-		p.noData= i18n('noData')
+		if collection.sessions.length > 0
+			ul
+				each val, ind in collection.sessions
+					li= val.title
+		else
+			p.noData= i18n('noData')
 	#map
 
 block scripts
