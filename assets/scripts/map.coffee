@@ -41,10 +41,7 @@ createList = (collection) ->
 		list = $('<ul>')
 		$('#nav').append(title).append(list)
 		$.each collection.sessions, (index, session) ->
-			if index < 10
-				addSession(session, true)
-			else
-				addSession(session, false)
+			addSession(session, false)
 	listChanged()
 
 addSession = (session, checked) ->
@@ -56,7 +53,11 @@ addSession = (session, checked) ->
 		id: 'session-' + session.id,
 		type: 'checkbox'
 	})
+	
 	checkbox.attr('checked', 'checked') if checked
+	checkbox.change ->
+		if this.checked
+			populateWithPoints(session)
 
 	label = $('<label>', {
 		for: 'session-' + session.id,
@@ -68,3 +69,6 @@ addSession = (session, checked) ->
 
 resetList = ->
 	$('#nav').empty()
+
+populateWithPoints = (session) ->
+	true
