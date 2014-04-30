@@ -22,6 +22,13 @@ html(lang='en')
 			section.top-bar-section
 				ul.right
 					li.has-dropdown
+						a(href='#')= i18n('settings')
+						ul.dropdown
+							li
+								a(href='/#settings')= i18n('session')
+							li
+								a(href='/settings')= i18n('global')
+					li.has-dropdown
 						a(href='#')= i18n('administration')
 						ul.dropdown
 							li

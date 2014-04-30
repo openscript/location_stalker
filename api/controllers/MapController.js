@@ -14,10 +14,11 @@ module.exports = {
 		query.populate('sessions', {sort: 'createdAt DESC'});
 
 		query.exec(function(err, rec) {
-			if(!err) {
+			if(!err && typeof rec != 'undefined') {
+				Collection.subscribe(req.socket, rec);
 				return res.json(rec);
 			} else {
-				return res.send(404)
+				return res.notFound();
 			}
 		});
 	}

@@ -16,6 +16,9 @@
   "editCollection": "Edit collection",
   "listCollections": "A list of collections",
   "collection": "Collection",
+  "session": "Session",
+  "global": "Global",
   "administration": "Administration",
+  "settings": "Settings",
   "footer": "This is an open source project and initiated by Robin Bühler."
 }
