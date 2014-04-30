@@ -13,6 +13,10 @@ module.exports = {
 		},
 		collection: {
 			model: 'collection'
+		},
+		points: {
+			collection: 'point',
+			via: 'session'
 		}
 	}
 }
