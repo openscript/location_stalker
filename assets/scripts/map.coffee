@@ -16,11 +16,55 @@ map.addLayer(osm)
 # Register events
 $('document').ready ->
 	noData = $('p.noData')
+	socket.get '/collection/' + $('#nav').data('collection'), (collection) ->
+		createList(collection)
+
+# Listen to socket
+socket.on 'collection', (res) ->
+	socket.get '/collection/' + $('#nav').data('collection'), (collection) ->
+		recreateList(collection)
 
 # Document manipulation
-createList = (list) ->
-	title = $('<h2>').text(list.title)
-	$('#nav').title
+listChanged = ->
+	if $('#nav').children(':not(.noData)').length <= 0
+		$('#nav').append(noData)
+	else
+		$('#nav').children('.noData').remove()
+
+recreateList = (collection) ->
+	resetList()
+	createList(collection)
+
+createList = (collection) ->
+	if collection.sessions.length > 0
+		title = $('<h2>').text(collection.title)
+		list = $('<ul>')
+		$('#nav').append(title).append(list)
+		$.each collection.sessions, (index, session) ->
+			if index < 10
+				addSession(session, true)
+			else
+				addSession(session, false)
+	listChanged()
+
+addSession = (session, checked) ->
+	item = $('<li>')
+	
+	checkbox = $('<input>', {
+		name: session.id,
+		value: session.id,
+		id: 'session-' + session.id,
+		type: 'checkbox'
+	})
+	checkbox.attr('checked', 'checked') if checked
+
+	label = $('<label>', {
+		for: 'session-' + session.id,
+		text: session.title
+	})
+
+	item.append(checkbox).append(label)
+	$('#nav ul').append(item)
 
 resetList = ->
 	$('#nav').empty()

@@ -4,13 +4,8 @@ block styles
 	link(href='/styles/leaflet.css', rel='stylesheet', type='text/css')
 
 block body
-	#nav
-		if collection.sessions.length > 0
-			ul
-				each val, ind in collection.sessions
-					li= val.title
-		else
-			p.noData= i18n('noData')
+	#nav(data-collection=collection.id)
+		p.noData= i18n('noData')
 	#map
 
 block scripts
