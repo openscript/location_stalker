@@ -1,7 +1,6 @@
 module.exports = {
 	view: function(req, res) {
 		Collection.findOne({id: req.param('id')}).exec(function(err, rec) {
-			debugger;
 			if(!err && typeof rec != 'undefined') {
 				return res.view({'collection': rec.id});
 			} else {
