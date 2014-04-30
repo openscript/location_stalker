@@ -28,5 +28,10 @@ module.exports.routes = {
   '/map/:id': {
   	controller: 'map',
   	action: 'view'
+  },
+
+  '/map/get/:id': {
+  	controller: 'map',
+  	action: 'get'
   }
 };

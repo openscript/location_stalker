@@ -1,9 +1,22 @@
 module.exports = {
 	view: function(req, res) {
-		Collection.findOne({id: req.param('id')}).populate('sessions').exec(function(err, rec) {
+		Collection.findOne({id: req.param('id')}).exec(function(err, rec) {
+			debugger;
+			if(!err && typeof rec != 'undefined') {
+				return res.view({'collection': rec.id});
+			} else {
+				return res.notFound();
+			}
+		});
+	},
+
+	get: function(req, res) {
+		var query = Collection.findOne({id: req.param('id')});
+		query.populate('sessions', {sort: 'createdAt DESC'});
+
+		query.exec(function(err, rec) {
 			if(!err) {
-				Collection.subscribe(req.socket, rec)
-				return res.view({'collection': rec});
+				return res.json(rec);
 			} else {
 				return res.send(404)
 			}
