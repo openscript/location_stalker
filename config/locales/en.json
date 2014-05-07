@@ -25,5 +25,6 @@
   "localSettings": "Local Settings",
   "localSettingsIntroduction": "This settings below are going to be saved into your session and may override global settings.",
   "globalSettings": "Global Settings",
-  "globalSettingsIntroduction": "This settings below are going to be saved persistently and are maybe overridden by local settings."
+  "globalSettingsIntroduction": "This settings below are going to be saved persistently and are maybe overridden by local settings.",
+  "user": "User"
 }
