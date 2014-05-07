@@ -38,5 +38,10 @@ module.exports.routes = {
   '/map/session/:id': {
     controller: 'map',
     action: 'session'
+  },
+
+  '/setting/local': {
+    controller: 'setting',
+    action: 'local',
   }
 };

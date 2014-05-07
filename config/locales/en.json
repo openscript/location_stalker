@@ -17,6 +17,7 @@
   "listCollections": "A list of collections",
   "collection": "Collection",
   "session": "Session",
+  "local": "Local",
   "global": "Global",
   "administration": "Administration",
   "settings": "Settings",
