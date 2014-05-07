@@ -32,11 +32,11 @@ This application works thanks to the following projects:
  - [Foundation](http://foundation.zurb.com/)
  - [socket.io](http://socket.io/)
  - [Jade](http://jade-lang.com/)
- - [MapBox Maki](https://www.mapbox.com/maki/)
 
 ## Note of thanks
 Many thanks to everyone who contributed to the project.
-- [Favicon](https://www.iconfinder.com/icons/110992/camera_icon#size=16)
+ - [Favicon](https://www.iconfinder.com/icons/110992/camera_icon#size=16)
+ - [MapBox Maki](https://www.mapbox.com/maki/)
 
 ## Copyright
 This projected is licensed under the terms of the GPL v3 license. Please consult the license file for further information.
