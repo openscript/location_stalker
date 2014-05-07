@@ -21,5 +21,9 @@
   "global": "Global",
   "administration": "Administration",
   "settings": "Settings",
-  "footer": "This is an open source project and initiated by Robin Bühler."
+  "footer": "This is an open source project and initiated by Robin Bühler.",
+  "localSettings": "Local Settings",
+  "localSettingsIntroduction": "This settings below are going to be saved into your session and may override global settings.",
+  "globalSettings": "Global Settings",
+  "globalSettingsIntroduction": "This settings below are going to be saved persistently and are maybe overridden by local settings."
 }

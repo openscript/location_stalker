@@ -1,0 +1,9 @@
+extends ../layout
+
+block body
+	.row
+		h2= i18n('globalSettings')
+		p= i18n('globalSettingsIntroduction')
+
+block scripts
+	script(type='text/javascript', src='/scripts/setting.js')

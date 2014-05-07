@@ -48,6 +48,9 @@ socket.on 'collection', (res) ->
 	socket.get '/map/collection/' + $('#nav').data('collection'), (collection) ->
 		recreateList(collection)
 
+socket.on 'session', (res) ->
+	true
+
 # Display available sessions
 listChanged = ->
 	if $('#nav').children(':not(.noData)').length <= 0
@@ -98,7 +101,7 @@ addSession = (session, checked) ->
 
 # Display sessions to map
 setSession = (session) ->
-	if session.id not in sessionLayers
+	if sessionLayers[session.id] == undefined
 		socket.get '/map/session/' + session.id, (session) ->
 			layer = new L.LayerGroup
 			$.each session.points, (index, point) ->
