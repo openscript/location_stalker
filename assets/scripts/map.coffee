@@ -5,23 +5,23 @@ noData = null
 osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 osmAttrib='<a href="http://openstreetmap.org">OpenStreetMap</a>'
 osm = new L.TileLayer osmUrl, {
-	minZoom: 8, 
-	maxZoom: 12, 
+	minZoom: 2, 
+	maxZoom: 20, 
 	attribution: osmAttrib
 }
 
-map.setView new L.LatLng(51.3, 0.7), 9
+map.setView new L.LatLng(0, 0), 2
 map.addLayer(osm)
 
 # Register events
 $('document').ready ->
 	noData = $('p.noData')
-	socket.get '/map/get/' + $('#nav').data('collection'), (collection) ->
+	socket.get '/map/collection/' + $('#nav').data('collection'), (collection) ->
 		createList(collection)
 
 # Listen to socket
 socket.on 'collection', (res) ->
-	socket.get '/map/get/' + $('#nav').data('collection'), (collection) ->
+	socket.get '/map/collection/' + $('#nav').data('collection'), (collection) ->
 		recreateList(collection)
 
 # Document manipulation
@@ -32,7 +32,7 @@ listChanged = ->
 		$('#nav').children('.noData').remove()
 
 recreateList = (collection) ->
-	resetList()
+	emptyList()
 	createList(collection)
 
 createList = (collection) ->
@@ -43,6 +43,9 @@ createList = (collection) ->
 		$.each collection.sessions, (index, session) ->
 			addSession(session, false)
 	listChanged()
+
+emptyList = ->
+	$('#nav').empty()
 
 addSession = (session, checked) ->
 	item = $('<li>')
@@ -67,8 +70,12 @@ addSession = (session, checked) ->
 	item.append(checkbox).append(label)
 	$('#nav ul').append(item)
 
-resetList = ->
-	$('#nav').empty()
+setPoints = (points) ->
+	true
+
+addPoint = (point) ->
+	true
 
 populateWithPoints = (session) ->
-	true
+	socket.get '/map/session/' + session.id, (session) ->
+		setPoints

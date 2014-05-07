@@ -9,13 +9,27 @@ module.exports = {
 		});
 	},
 
-	get: function(req, res) {
+	collection: function(req, res) {
 		var query = Collection.findOne({id: req.param('id')});
 		query.populate('sessions', {sort: 'createdAt DESC'});
 
 		query.exec(function(err, rec) {
 			if(!err && typeof rec != 'undefined') {
 				Collection.subscribe(req.socket, rec);
+				return res.json(rec);
+			} else {
+				return res.notFound();
+			}
+		});
+	},
+
+	session: function(req, res) {
+		var query = Session.findOne({id: req.param('id')});
+		query.populate('points', {sort: 'createdAt DESC'});
+
+		query.exec(function(err, rec) {
+			if(!err && typeof rec != 'undefined') {
+				Session.subscribe(req.socket, rec);
 				return res.json(rec);
 			} else {
 				return res.notFound();

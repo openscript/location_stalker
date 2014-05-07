@@ -26,12 +26,17 @@ module.exports.routes = {
   },
 
   '/map/:id': {
-  	controller: 'map',
-  	action: 'view'
+    controller: 'map',
+    action: 'view'
   },
 
-  '/map/get/:id': {
-  	controller: 'map',
-  	action: 'get'
+  '/map/collection/:id': {
+    controller: 'map',
+    action: 'collection'
+  },
+
+  '/map/session/:id': {
+    controller: 'map',
+    action: 'session'
   }
 };
