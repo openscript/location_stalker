@@ -28,10 +28,11 @@ Start Location Stalker with `sails lift`.
 
 ## Dependencies
 This application works thanks to the following projects:
- - [Sails.JS](http://sailsjs.org)
+ - [Sails.JS](http://sailsjs.org/)
  - [Foundation](http://foundation.zurb.com/)
  - [socket.io](http://socket.io/)
  - [Jade](http://jade-lang.com/)
+ - [MapBox Maki](https://www.mapbox.com/maki/)
 
 ## Note of thanks
 Many thanks to everyone who contributed to the project.

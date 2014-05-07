@@ -69,7 +69,7 @@ th.actions {
 	top: 0;
 	bottom: 0;
 	width: 250px;
-	overflow: hidden;
+	overflow: scroll;
 	padding: rem-calc(10) 0 0 0;
 
 	h2 {
@@ -82,7 +82,7 @@ th.actions {
 	ul {
 		list-style: none;
 
-		input[type=checkbox]{
+		input[type=checkbox] {
 			display: none;
 		}
 

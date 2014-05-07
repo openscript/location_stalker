@@ -1,4 +1,10 @@
-map = L.map('map')
+# This represents the map
+map = L.map 'map'
+
+# This represents all painted session layers
+sessionLayers = {}
+
+# This contains the
 noData = null
 
 # Set up map layer
@@ -12,6 +18,24 @@ osm = new L.TileLayer osmUrl, {
 
 map.setView new L.LatLng(0, 0), 2
 map.addLayer(osm)
+
+# Define some icons
+markerIcon = L.icon {
+	iconUrl: '/images/marker.png',
+	shadownUrl: '/images/marker-shadow.png',
+	iconSize: [34, 33],
+	shadowSize: [34, 33],
+	iconAnchor: [14, 23],
+	shadownAnchor: [14, 23],
+	popupAnchor: [14, -10]
+}
+
+pointIcon = L.icon {
+	iconUrl: '/images/point.png',
+	iconSize: [20, 20],
+	iconAnchor: [10, 10],
+	popupAnchor: [10, -10]
+}
 
 # Register events
 $('document').ready ->
@@ -60,7 +84,9 @@ addSession = (session, checked) ->
 	checkbox.attr('checked', 'checked') if checked
 	checkbox.change ->
 		if this.checked
-			populateWithPoints(session)
+			setSession(session)
+		else
+			unsetSession(session)
 
 	label = $('<label>', {
 		for: 'session-' + session.id,
@@ -70,12 +96,17 @@ addSession = (session, checked) ->
 	item.append(checkbox).append(label)
 	$('#nav ul').append(item)
 
-setPoints = (points) ->
-	true
+setSession = (session) ->
+	if session.id not in sessionLayers
+		socket.get '/map/session/' + session.id, (session) ->
+			layer = new L.LayerGroup
+			$.each session.points, (index, point) ->
+				layer.addLayer L.marker([point.longitude, point.latitude], {icon: pointIcon})
+			sessionLayers[session.id] = layer
+			sessionLayers[session.id].addTo(map)
+	else
+		sessionLayers[session.id].addTo(map)
 
-addPoint = (point) ->
-	true
-
-populateWithPoints = (session) ->
-	socket.get '/map/session/' + session.id, (session) ->
-		setPoints
+unsetSession = (session) ->
+	if sessionLayers[session.id] != undefined
+		map.removeLayer(sessionLayers[session.id])
