@@ -25,9 +25,15 @@ module.exports.routes = {
     view: 'start'
   },
 
-  '/map/:id': {
+  // map routes
+  'get /map/:id': {
     controller: 'map',
     action: 'view'
+  },
+
+  'post /map/:id': {
+    controller: 'map',
+    action: 'add'
   },
 
   '/map/collection/:id': {
@@ -40,8 +46,14 @@ module.exports.routes = {
     action: 'session'
   },
 
+  // other routes
   '/setting/local': {
     controller: 'setting',
-    action: 'local',
+    action: 'local'
+  },
+
+  'get /session/generate': {
+    controller: 'session',
+    action: 'generate'
   }
 };

@@ -26,7 +26,8 @@
     "leaflet": "^0.7.2",
     "passport": "~0.2.0",
     "passport-local": "~1.0.0",
-    "bcrypt": "~0.7.0"
+    "bcrypt": "~0.7.0",
+    "crypto": "~0.3.0"
   },
   "defDependencies": {
     "then-jade": "~2.0.0",

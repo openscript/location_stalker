@@ -9,6 +9,16 @@ module.exports = {
 		});
 	},
 
+	add: function(req, res) {
+		Collection.findOne({id: req.param('id')}).exec(function(err, rec) {
+			if(!err && typeof rec != 'undefined') {
+				
+			} else {
+				return res.notFound();
+			}
+		});
+	},
+
 	collection: function(req, res) {
 		var query = Collection.findOne({id: req.param('id')});
 		query.populate('sessions', {sort: 'createdAt DESC'});
