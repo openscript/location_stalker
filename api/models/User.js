@@ -8,10 +8,17 @@ module.exports = {
 			required: true,
 			unique: true
 		},
+
 		password: {
 			type: 'string',
 			required: true
 		},
+
+		groups: {
+			collection: 'group',
+			via: 'users',
+			dominant: true
+		}
 
 		toJSON: function() {
 			var obj = this.toObject();
