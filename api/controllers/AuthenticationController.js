@@ -6,7 +6,7 @@ module.exports = {
 	},
 
 	process: function(res, req) {
-		passport.authenticate('local', function(err, user, info)) {
+		passport.authenticate('local', function(err, user, info) {
 			if(err || !user) {
 				res.redirect('/signIn');
 				return;
@@ -17,7 +17,7 @@ module.exports = {
 				}
 				return res.redirect('/');
 			});
-		}
+		});
 	},
 
 	signOut: function(res, req) {

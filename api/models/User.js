@@ -18,7 +18,7 @@ module.exports = {
 			collection: 'group',
 			via: 'users',
 			dominant: true
-		}
+		},
 
 		toJSON: function() {
 			var obj = this.toObject();
