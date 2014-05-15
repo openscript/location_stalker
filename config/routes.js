@@ -47,7 +47,7 @@ module.exports.routes = {
   },
 
   // session routes
-  'get /session/generate': {
+  'post /session/generate': {
     controller: 'session',
     action: 'generate',
     cors: true
@@ -57,7 +57,7 @@ module.exports.routes = {
     controller: 'session',
     action: 'create',
     cors: true
-  }
+  },
 
   // other routes
   '/setting/local': {

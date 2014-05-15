@@ -7,9 +7,12 @@ module.exports = {
 		var hash = crypto.createHmac('sha1', ip).update(ua).digest('hex');
 		var session = {};
 
-		session['title'] = ip;
-		session['key'] = hash;
+		Collection.findOne({title: req.param('collection-title')}).exec(function(err, rec) { 
+			session['title'] = ip;
+			session['key'] = hash;
+			session['collection'] = rec.id;
 
-		res.send(session);
+			res.send(session);
+		});
 	}
 }
