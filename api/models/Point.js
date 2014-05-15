@@ -20,7 +20,8 @@ module.exports = {
 			required: false
 		},
 		session: {
-			model: 'session'
+			model: 'session',
+			required: true
 		}
 	}
 }

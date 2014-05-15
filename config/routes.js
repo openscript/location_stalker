@@ -31,9 +31,10 @@ module.exports.routes = {
     action: 'view'
   },
 
-  'post /map/:id': {
+  'post /map/:key': {
     controller: 'map',
-    action: 'add'
+    action: 'add',
+    cors: true
   },
 
   '/map/collection/:id': {

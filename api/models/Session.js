@@ -9,10 +9,12 @@ module.exports = {
 		},
 		key: {
 			type: 'string',
-			required: true
+			required: true,
+			unique: true
 		},
 		collection: {
-			model: 'collection'
+			model: 'collection',
+			required: true
 		},
 		points: {
 			collection: 'point',
