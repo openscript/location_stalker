@@ -51,6 +51,9 @@ socket.on 'collection', (res) ->
 socket.on 'session', (res) ->
 	true
 
+socket.on 'point', (res) ->
+	true
+
 # Display available sessions
 listChanged = ->
 	if $('#nav').children(':not(.noData)').length <= 0

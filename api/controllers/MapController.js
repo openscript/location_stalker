@@ -19,6 +19,7 @@ module.exports = {
 					accuracy: req.param('accuracy'),
 					session: rec.id
 				}).exec(function(err, rec) {
+					Session.publishAdd(rec.session, 'points', rec.id);
 					res.json(rec);
 				});
 			} else {
