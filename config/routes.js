@@ -37,16 +37,6 @@ module.exports.routes = {
     cors: true
   },
 
-  '/map/collection/:id': {
-    controller: 'map',
-    action: 'collection'
-  },
-
-  '/map/session/:id': {
-    controller: 'map',
-    action: 'session'
-  },
-
   // session routes
   'post /session/generate': {
     controller: 'session',
@@ -58,6 +48,17 @@ module.exports.routes = {
     controller: 'session',
     action: 'create',
     cors: true
+  },
+
+  'get /session/subscribe/:id': {
+    controller: 'session',
+    action: 'subscribe'
+  },
+
+  // collection routes
+  'get /collection/subscribe/:id': {
+    controller: 'collection',
+    action: 'subscribe'
   },
 
   // other routes

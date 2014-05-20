@@ -40,12 +40,12 @@ map.addLayer(osm)
 # Register events
 $('document').ready ->
 	noData = $('p.noData')
-	socket.get '/map/collection/' + $('#nav').data('collection'), (collection) ->
+	socket.get '/collection/subscribe/' + $('#nav').data('collection'), (collection) ->
 		createList(collection)
 
 # Listen to socket
 socket.on 'collection', (res) ->
-	socket.get '/map/collection/' + $('#nav').data('collection'), (collection) ->
+	socket.get '/collection/subscribe/' + $('#nav').data('collection'), (collection) ->
 		recreateList(collection)
 
 socket.on 'session', (res) ->
@@ -102,7 +102,7 @@ addSession = (session, checked) ->
 # Display sessions to map
 setSession = (session) ->
 	if sessionLayers[session.id] == undefined
-		socket.get '/map/session/' + session.id, (session) ->
+		socket.get '/session/subscribe/' + session.id, (session) ->
 			layer = new L.LayerGroup
 			$.each session.points, (index, point) ->
 				layer.addLayer L.marker([point.longitude, point.latitude], {icon: pointIcon})
