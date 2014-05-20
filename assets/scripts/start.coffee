@@ -22,8 +22,11 @@ listChanged = ->
 	else
 		$('#list tbody').children('.noData').remove()
 
+emptyList = ->
+	$('#list tbody').empty()
+
 recreateList = (list) ->
-	resetList()
+	emptyList()
 	createList(list)
 
 createList = (list) ->

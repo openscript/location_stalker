@@ -87,9 +87,9 @@ addSession = (session, checked) ->
 	checkbox.attr('checked', 'checked') if checked
 	checkbox.change ->
 		if this.checked
-			setSession(session)
+			subscribeSession(session)
 		else
-			unsetSession(session)
+			unsubscribeSession(session)
 
 	label = $('<label>', {
 		for: 'session-' + session.id,
@@ -100,7 +100,7 @@ addSession = (session, checked) ->
 	$('#nav ul').append(item)
 
 # Display sessions to map
-setSession = (session) ->
+subscribeSession = (session) ->
 	if sessionLayers[session.id] == undefined
 		socket.get '/session/subscribe/' + session.id, (session) ->
 			layer = new L.LayerGroup
@@ -111,6 +111,7 @@ setSession = (session) ->
 	else
 		sessionLayers[session.id].addTo(map)
 
-unsetSession = (session) ->
+unsubscribeSession = (session) ->
 	if sessionLayers[session.id] != undefined
+		socket.get '/session/unsubscribe/' + session.id
 		map.removeLayer(sessionLayers[session.id])

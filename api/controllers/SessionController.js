@@ -27,5 +27,17 @@ module.exports = {
 				return res.notFound();
 			}
 		});
+	},
+
+	unsubscribe: function(req, res) {
+		var query = Session.findOne({id: req.param('id')});
+
+		query.exec(function(err, rec) {
+			if(!err && typeof rec != 'undefined') {
+				Session.unsubscribe(req.socket, rec);
+			} else {
+				return res.notFound();
+			}	
+		});
 	}
 }
