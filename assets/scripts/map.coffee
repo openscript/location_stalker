@@ -2,7 +2,10 @@
 map = L.map 'map'
 
 # This represents all painted session layers
-sessionLayers = {}
+layers = {}
+
+# This represents the model
+data = null
 
 # This contains the
 noData = null
@@ -41,15 +44,20 @@ map.addLayer(osm)
 $('document').ready ->
 	noData = $('p.noData')
 	socket.get '/collection/subscribe/' + $('#nav').data('collection'), (collection) ->
+		data = new Collection(collection)
 		createList(collection)
+
 
 # Listen to socket
 socket.on 'collection', (res) ->
 	socket.get '/collection/subscribe/' + $('#nav').data('collection'), (collection) ->
 		recreateList(collection)
+	if res.verb == 'addedTo' && res.attribute == 'sessions'
+		true
 
 socket.on 'session', (res) ->
-	true
+	if res.verb == 'addedTo' && res.attribute == 'points'
+		true
 
 socket.on 'point', (res) ->
 	true
@@ -104,17 +112,17 @@ addSession = (session, checked) ->
 
 # Display sessions to map
 subscribeSession = (session) ->
-	if sessionLayers[session.id] == undefined
+	if layers[session.id] == undefined
 		socket.get '/session/subscribe/' + session.id, (session) ->
 			layer = new L.LayerGroup
 			$.each session.points, (index, point) ->
 				layer.addLayer L.marker([point.longitude, point.latitude], {icon: pointIcon})
-			sessionLayers[session.id] = layer
-			sessionLayers[session.id].addTo(map)
+			layers[session.id] = layer
+			layers[session.id].addTo(map)
 	else
-		sessionLayers[session.id].addTo(map)
+		layers[session.id].addTo(map)
 
 unsubscribeSession = (session) ->
-	if sessionLayers[session.id] != undefined
+	if layers[session.id] != undefined
 		socket.get '/session/unsubscribe/' + session.id
-		map.removeLayer(sessionLayers[session.id])
+		map.removeLayer(layers[session.id])
