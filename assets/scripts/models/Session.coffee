@@ -3,7 +3,7 @@ class Session
 	title: null
 	key: null
 	collection: null
-	points: {}
+	points: []
 
 	constructor: (record) ->
 		@id = record.id
@@ -15,11 +15,19 @@ class Session
 			@collection = record.collection
 		if typeof(record.points) == 'object'
 			for point in record.points
-				model = new Point(point)
-				points[model.id] = model;
+				@points.push(new Point(point))
 
-	addPoint: (point) ->
-		points[point.id] = point
+	addPoint: (point, callback) ->
+		@points.push(point)
+		callback? point
+		return point
 
 	removePoint: (point) ->
-		delete points[point.id]
+		del = null
+
+		for value, index in @points
+			if value.id == point.id
+				del = index
+				break
+
+		@points.splice(del, 1) if del != null

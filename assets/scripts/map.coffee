@@ -45,22 +45,19 @@ $('document').ready ->
 	noData = $('p.noData')
 	socket.get '/collection/subscribe/' + $('#nav').data('collection'), (collection) ->
 		data = new Collection(collection)
-		createList(collection)
+		addCollection(data)
 
 
 # Listen to socket
 socket.on 'collection', (res) ->
-	socket.get '/collection/subscribe/' + $('#nav').data('collection'), (collection) ->
-		recreateList(collection)
 	if res.verb == 'addedTo' && res.attribute == 'sessions'
-		true
+		session = new Session(res.addedRec)
+		data.addSession(session, addSession)
 
 socket.on 'session', (res) ->
 	if res.verb == 'addedTo' && res.attribute == 'points'
-		true
-
-socket.on 'point', (res) ->
-	true
+		point = new Point(res.addedRec)
+		data.getSessionById(point.session).addPoint(point, addPoint)
 
 # Display available sessions
 listChanged = ->
@@ -69,23 +66,20 @@ listChanged = ->
 	else
 		$('#nav').children('.noData').remove()
 
-recreateList = (collection) ->
-	emptyList()
+reloadCollection = (collection) ->
+	$('#nav').empty()
 	createList(collection)
 
-createList = (collection) ->
+addCollection = (collection) ->
 	if collection.sessions.length > 0
 		title = $('<h2>').text(collection.title)
 		list = $('<ul>')
 		$('#nav').append(title).append(list)
-		$.each collection.sessions, (index, session) ->
+		for session in collection.sessions
 			addSession(session, false)
 	listChanged()
 
-emptyList = ->
-	$('#nav').empty()
-
-addSession = (session, checked) ->
+addSession = (session, checked = false) ->
 	item = $('<li>')
 	
 	checkbox = $('<input>', {
@@ -94,13 +88,14 @@ addSession = (session, checked) ->
 		id: 'session-' + session.id,
 		type: 'checkbox'
 	})
-	
-	checkbox.attr('checked', 'checked') if checked
+
 	checkbox.change ->
 		if this.checked
 			subscribeSession(session)
 		else
 			unsubscribeSession(session)
+	
+	checkbox.attr('checked', 'checked') if checked
 
 	label = $('<label>', {
 		for: 'session-' + session.id,
@@ -110,14 +105,19 @@ addSession = (session, checked) ->
 	item.append(checkbox).append(label)
 	$('#nav ul').append(item)
 
-# Display sessions to map
+addPoint = (point) ->
+	layer = layers[point.session]
+	layer.addLayer L.marker([point.longitude, point.latitude], {icon: pointIcon})
+
+# Display sessions on map
 subscribeSession = (session) ->
 	if layers[session.id] == undefined
-		socket.get '/session/subscribe/' + session.id, (session) ->
-			layer = new L.LayerGroup
-			$.each session.points, (index, point) ->
-				layer.addLayer L.marker([point.longitude, point.latitude], {icon: pointIcon})
-			layers[session.id] = layer
+		socket.get '/session/subscribe/' + session.id, (record) ->
+			session = data.replaceSession(new Session(record))
+
+			layers[session.id] = new L.LayerGroup
+			for point in session.points
+				addPoint(point)
 			layers[session.id].addTo(map)
 	else
 		layers[session.id].addTo(map)
